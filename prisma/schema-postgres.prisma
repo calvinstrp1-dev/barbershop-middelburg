@@ -1,0 +1,28 @@
+// Production schema voor PostgreSQL
+// Kopieer dit naar schema.prisma voor Vercel deployment
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Appointment {
+  id            String   @id @default(cuid())
+  date          String   // ISO date string
+  timeSlot      String   // e.g., "09:00"
+  service       String   // e.g., "haircut", "beard", etc.
+  customerName  String
+  customerEmail String
+  customerPhone String
+  notes         String?
+  status        String   @default("scheduled") // scheduled, cancelled, completed
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([date])
+  @@index([status])
+}

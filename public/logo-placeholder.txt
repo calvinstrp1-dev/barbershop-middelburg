@@ -1,0 +1,6 @@
+LOGO BESTAND TOEVOEGEN:
+
+Gebruiker moet handmatig het geüploade logo bestand toevoegen aan:
+barbershop-website/public/logo.png
+
+Het logo wordt dan automatisch gebruikt in de hele website.
